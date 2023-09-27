@@ -77,6 +77,7 @@ class WebPage(object):
 
         return self._web_driver.current_url
 
+
     def get_page_source(self):
         """ Returns current page body. """
 

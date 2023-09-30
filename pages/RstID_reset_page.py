@@ -1,10 +1,10 @@
 from pages.base import WebPage
 from pages.elements import WebElement
 
-class RstIdPage(WebPage):
+class RstIdResetPage(WebPage):
 
     def __init__(self, web_driver, url = ''):
-        url = 'https://b2c.passport.rt.ru/'
+        url = 'https://b2c.passport.rt.ru/auth/realms/b2c/login-actions/reset-credentials?client_id=account_b2c&tab_id=AyPIZqPgoGY'
         super().__init__(web_driver, url)
 
     tab_number = WebElement(id = 't-btn-tab-phone')
@@ -13,8 +13,5 @@ class RstIdPage(WebPage):
     tab_ls = WebElement(id = 't-btn-tab-ls')
 
     username = WebElement(id = 'username')
-    password = WebElement(id = 'password')
-
-    btn_login = WebElement(id = 'kc-login')
-    btn_forgot_pass = WebElement(id = 'forgot_password')
-    btn_register = WebElement(id = 'kc-register')
+    btn_reset = WebElement(id = 'reset')
+    btn_back_to_login = WebElement(id = 'reset-back')

@@ -15,3 +15,4 @@ class RstIdResetPage(WebPage):
     username = WebElement(id = 'username')
     btn_reset = WebElement(id = 'reset')
     btn_back_to_login = WebElement(id = 'reset-back')
+    btn_help = WebElement(xpath='//*[@id="faq-open"]/a[1]')

@@ -1,15 +1,13 @@
 # python -m pytest -v --driver Chrome --driver-path \chromedriver.exe tests\test_rstid_auth_page.py
-import pickle
 
 from pages.RstID_auth_page import RstIdAuthPage
 
 def test_open_page(web_browser):
-    # проверка открытия страницы авторизации и запись кукис для прямого открытия страницы регистрации
+    # проверка открытия страницы авторизации
 
     page = RstIdAuthPage(web_browser)
     page.wait_page_loaded(timeout=10)
 
-    pickle.dump(page.get_cookies(), open('my_cookies.txt', 'wb'))
 
     assert 'https://b2c.passport.rt.ru/auth/realms/b2c/protocol/openid-connect/auth' in page.get_current_url()
     assert 'Авторизация' in page.get_page_source()
@@ -20,6 +18,19 @@ def test_login_valid_email(web_browser):
     page = RstIdAuthPage(web_browser)
 
     page.tab_email.click()
+    page.username.send_keys('owcaf@mailto.plus')
+    page.password.send_keys('Test1234567')
+    page.btn_login.click()
+    page.screenshot('test_login_valid_email')
+
+    assert 'https://b2c.passport.rt.ru/account_b2c/page' in page.get_current_url()
+    assert 'Учетные данные' in page.get_page_source()
+
+def test_auto_choice_auth_date(web_browser):
+    # автоматическое переключение таба выбора аутентификации
+
+    page = RstIdAuthPage(web_browser)
+
     page.username.send_keys('owcaf@mailto.plus')
     page.password.send_keys('Test1234567')
     page.btn_login.click()
@@ -125,18 +136,6 @@ def test_login_invalid_password(web_browser):
     page.btn_login.click()
 
     assert 'Неверный логин или пароль' in page.get_page_source()
-
-def test_auto_choice_auth_date(web_browser):
-    # автоматическое переключение таба выбора аутентификации
-
-    page = RstIdAuthPage(web_browser)
-
-    page.username.send_keys('owcaf@mailto.plus')
-    page.password.send_keys('Test1234567')
-    page.btn_login.click()
-
-    assert 'https://b2c.passport.rt.ru/account_b2c/page' in page.get_current_url()
-    assert 'Учетные данные' in page.get_page_source()
 
 
 def test_go_page_forgot_pass(web_browser):

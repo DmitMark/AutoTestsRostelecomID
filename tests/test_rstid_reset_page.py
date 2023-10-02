@@ -1,3 +1,5 @@
+# python -m pytest -v --driver Chrome --driver-path \chromedriver.exe tests\test_rstid_reset_page.py
+
 from pages.RstID_reset_page import RstIdResetPage
 
 def test_reset_valid_email(web_browser):

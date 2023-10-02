@@ -29,6 +29,7 @@ def test_reg_without_data(web_browser):
     # переход на страницу регистрации
 
     page.btn_reg.click()
+    page.screenshot('test_reg_without_data')
 
     assert 'Необходимо заполнить поле кириллицей. От 2 до 30 символов.' in page.get_page_source()
     assert 'Введите телефон в формате +7ХХХХХХХХХХ или +375XXXXXXXXX, или email в формате example@email.ru' in page.get_page_source()
@@ -62,9 +63,9 @@ def test_reg_with_invalid_first_name2(web_browser):
 
     page.first_name.send_keys('ИванИванИванИванИванИванИванИва')
     page.last_name.send_keys('Иванов')
-    page.address('enwowun@mailto.plus')
-    page.password('123Test456')
-    page.password_confirm('123Test456')
+    page.address.send_keys('enwowun@mailto.plus')
+    page.password.send_keys('123Test456')
+    page.password_confirm.send_keys('123Test456')
 
     page.btn_reg.click()
 
@@ -79,9 +80,9 @@ def test_reg_with_invalid_last_name(web_browser):
 
     page.first_name.send_keys('Иван')
     page.last_name.send_keys('Ivanov')
-    page.address('enwowun@mailto.plus')
-    page.password('123Test456')
-    page.password_confirm('123Test456')
+    page.address.send_keys('enwowun@mailto.plus')
+    page.password.send_keys('123Test456')
+    page.password_confirm.send_keys('123Test456')
 
     page.btn_reg.click()
 
@@ -97,9 +98,9 @@ def test_reg_with_invalid_last_name2(web_browser):
 
     page.first_name.send_keys('Иван')
     page.last_name.send_keys('ИвановИвановИвановИвановИвановИ')
-    page.address('enwowun@mailto.plus')
-    page.password('123Test456')
-    page.password_confirm('123Test456')
+    page.address.send_keys('enwowun@mailto.plus')
+    page.password.send_keys('123Test456')
+    page.password_confirm.send_keys('123Test456')
 
     page.btn_reg.click()
 
@@ -114,9 +115,9 @@ def test_reg_with_invalid_number(web_browser):
 
     page.first_name.send_keys('Иван')
     page.last_name.send_keys('Иванов')
-    page.address('+69848464646648')
-    page.password('123Test456')
-    page.password_confirm('123Test456')
+    page.address.send_keys('+69848464646648')
+    page.password.send_keys('123Test456')
+    page.password_confirm.send_keys('123Test456')
 
     page.btn_reg.click()
 
@@ -132,9 +133,9 @@ def test_reg_with_invalid_mail(web_browser):
 
     page.first_name.send_keys('Иван')
     page.last_name.send_keys('Иванов')
-    page.address('asdfsdfg@sdfsdg@dsfg@')
-    page.password('123Test456')
-    page.password_confirm('123Test456')
+    page.address.send_keys('asdfsdfg@sdfsdg@dsfg@')
+    page.password.send_keys('123Test456')
+    page.password_confirm.send_keys('123Test456')
 
     page.btn_reg.click()
 
@@ -149,9 +150,9 @@ def test_reg_with_invalid_password(web_browser):
 
     page.first_name.send_keys('Иван')
     page.last_name.send_keys('Иванов')
-    page.address('enwowun@mailto.plus')
-    page.password('123Test')
-    page.password_confirm('123Test')
+    page.address.send_keys('enwowun@mailto.plus')
+    page.password.send_keys('123Test')
+    page.password_confirm.send_keys('123Test')
 
     page.btn_reg.click()
 
@@ -166,9 +167,9 @@ def test_reg_with_invalid_password2(web_browser):
 
     page.first_name.send_keys('Иван')
     page.last_name.send_keys('Иванов')
-    page.address('enwowun@mailto.plus')
-    page.password('123456Тест')
-    page.password_confirm('123456Тест')
+    page.address.send_keys('enwowun@mailto.plus')
+    page.password.send_keys('123456Тест')
+    page.password_confirm.send_keys('123456Тест')
 
     page.btn_reg.click()
 
@@ -184,9 +185,9 @@ def test_reg_with_invalid_password_confirm(web_browser):
 
     page.first_name.send_keys('Иван')
     page.last_name.send_keys('Иванов')
-    page.address('enwowun@mailto.plus')
-    page.password('123Test456')
-    page.password_confirm('456Test65')
+    page.address.send_keys('enwowun@mailto.plus')
+    page.password.send_keys('123Test456')
+    page.password_confirm.send_keys('456Test65')
 
     page.btn_reg.click()
 

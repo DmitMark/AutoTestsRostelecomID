@@ -20,7 +20,7 @@ def test_back_to_login(web_browser):
 def test_go_to_help(web_browser):
     # проверка перехода на страницу помощи
 
-    page = RstIdAuthPage(web_browser)
+    page = RstIdResetPage(web_browser)
     page.btn_help.click()
 
     assert 'Ваш безопасный ключ к сервисам Ростелекома' in page.get_page_source()

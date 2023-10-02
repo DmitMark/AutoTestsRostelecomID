@@ -21,7 +21,7 @@ def test_login_valid_email(web_browser):
     page.username.send_keys('owcaf@mailto.plus')
     page.password.send_keys('Test1234567')
     page.btn_login.click()
-    page.screenshot('test_login_valid_email')
+    page.screenshot('test_login_valid_email.png')
 
     assert 'https://b2c.passport.rt.ru/account_b2c/page' in page.get_current_url()
     assert 'Учетные данные' in page.get_page_source()

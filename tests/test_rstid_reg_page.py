@@ -29,7 +29,7 @@ def test_reg_without_data(web_browser):
     # переход на страницу регистрации
 
     page.btn_reg.click()
-    page.screenshot('test_reg_without_data')
+    page.screenshot('test_reg_without_data.png')
 
     assert 'Необходимо заполнить поле кириллицей. От 2 до 30 символов.' in page.get_page_source()
     assert 'Введите телефон в формате +7ХХХХХХХХХХ или +375XXXXXXXXX, или email в формате example@email.ru' in page.get_page_source()
